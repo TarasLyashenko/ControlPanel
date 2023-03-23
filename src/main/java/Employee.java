@@ -110,15 +110,13 @@ public class Employee
     @Override
     public String toString()
     {
-        return "Сотрудник:" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                ", gender='" + gender + '\'' +
-                ", age=" + age +
-                ", assignment='" + assignment + '\'' +
-                ", fingerprint='" + fingerprint + '\'' +
-                ", physicalStatus='" + physicalStatus + '\'' +
-                ", mentalStatus='" + mentalStatus + '\'' +
-                '}';
+        return name + " | " +
+                 id + " | " +
+                 gender + " | " +
+                 age + " | " +
+                assignment + " | " +
+                fingerprint + " | " +
+                physicalStatus + " | " +
+                mentalStatus ;
     }
 }

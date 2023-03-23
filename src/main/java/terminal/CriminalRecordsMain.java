@@ -1,19 +1,36 @@
-import java.util.Scanner;
+package terminal;
 
-public class Main
+import java.util.Scanner;
+import javax.annotation.Resource;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import terminal.service.CriminalRecordsTerminalImpl;
+
+@SpringBootApplication
+public class CriminalRecordsMain implements CommandLineRunner
 {
+    private final Scanner scanner = new Scanner(System.in);
+
+    @Resource
+    private CriminalRecordsTerminalImpl criminalRecordsTerminal;
+
+
     public static void main(String[] args)
     {
-        Scanner scanner = new Scanner(System.in);
-        CriminalRecordsTerminalImpl criminalRecordsTerminal = new CriminalRecordsTerminalImpl();
+        SpringApplication.run(CriminalRecordsMain.class, args);
+    }
 
+    @Override
+    public void run(String... args)
+    {
         while (true)
         {
             {
                 System.out.println("Терминал охраны v2.3.5\n" +
-                        "1 - Разблокировать доступ\n" +
-                        "2 - Добавить нового сотрудника\n" +
-                        "3 - Показать всех сотрудников");
+                    "1 - Разблокировать доступ\n" +
+                    "2 - Добавить нового сотрудника\n" +
+                    "3 - Показать всех сотрудников");
 
                 String userText = scanner.nextLine();
                 if (userText.equals("1"))
@@ -49,4 +66,3 @@ public class Main
         }
     }
 }
-

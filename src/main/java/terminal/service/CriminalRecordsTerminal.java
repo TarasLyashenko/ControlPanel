@@ -1,4 +1,4 @@
-
+package terminal.service;
 
 public interface CriminalRecordsTerminal
 {

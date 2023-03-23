@@ -1,10 +1,21 @@
+package terminal.service;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import javax.annotation.Resource;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
+import terminal.model.Employee;
 
+@Service
 public class CriminalRecordsTerminalImpl implements CriminalRecordsTerminal
 {
     private static final String CORRECT_CODE = "выавыар";
+
+    @Resource
+    private JdbcTemplate jdbcTemplate;
+
     private boolean power;
     private boolean access;
     private List<Employee> employees = new ArrayList<>();
@@ -71,10 +82,7 @@ public class CriminalRecordsTerminalImpl implements CriminalRecordsTerminal
             System.out.println("Введите ментальный статус");
             String mentalStatusEmployee = scanner.nextLine();
 
-            Employee employee = new Employee(nameEmployee, idEmployee, genderEmployee, age,
-                    assignmentEmployee, fingerprintEmployee, physicalStatusEmployee,
-                    mentalStatusEmployee);
-            employees.add(employee);
+            jdbcTemplate.update("INSERT INTO employee (id, name) VALUES (?, ?)", idEmployee, nameEmployee);
         }
     }
 

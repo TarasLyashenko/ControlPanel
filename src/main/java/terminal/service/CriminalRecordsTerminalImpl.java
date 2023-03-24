@@ -72,7 +72,7 @@ public class CriminalRecordsTerminalImpl implements CriminalRecordsTerminal
             System.out.println("Введите пол сотрудника");
             String genderEmployee = scanner.nextLine();
             System.out.println("Введите возраст сотрудника");
-            int age = Integer.parseInt(scanner.nextLine());
+            int ageEmployee = Integer.parseInt(scanner.nextLine());
             System.out.println("Введите должность сотрудника");
             String assignmentEmployee = scanner.nextLine();
             System.out.println("Введите уникальный код отпечатков пальцев");
@@ -82,7 +82,9 @@ public class CriminalRecordsTerminalImpl implements CriminalRecordsTerminal
             System.out.println("Введите ментальный статус");
             String mentalStatusEmployee = scanner.nextLine();
 
-            jdbcTemplate.update("INSERT INTO employee (id, name) VALUES (?, ?)", idEmployee, nameEmployee);
+            jdbcTemplate.update("INSERT INTO employee (name,age) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                    nameEmployee, genderEmployee, ageEmployee, assignmentEmployee,
+                    fingerprintEmployee, physicalStatusEmployee, mentalStatusEmployee);
         }
     }
 

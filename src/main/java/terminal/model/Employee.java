@@ -2,8 +2,8 @@ package terminal.model;
 
 public class Employee
 {
-    private String name;
     private int id;
+    private String name;
     private String gender;
     private int age;
     private String assignment;
@@ -23,6 +23,11 @@ public class Employee
         this.fingerprint = fingerprintEmployee;
         this.physicalStatus = physicalStatusEmployee;
         this.mentalStatus = mentalStatusEmployee;
+    }
+
+    public Employee()
+    {
+
     }
 
 
@@ -109,13 +114,13 @@ public class Employee
     @Override
     public String toString()
     {
-        return name + " | " +
-                 id + " | " +
-                 gender + " | " +
-                 age + " | " +
+        return id + " | " +
+                name + " | " +
+                gender + " | " +
+                age + " | " +
                 assignment + " | " +
                 fingerprint + " | " +
                 physicalStatus + " | " +
-                mentalStatus ;
+                mentalStatus;
     }
 }

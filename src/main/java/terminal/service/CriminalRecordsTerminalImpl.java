@@ -1,12 +1,14 @@
 package terminal.service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import javax.annotation.Resource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import terminal.model.Employee;
+import terminal.rowmappers.EmployeeRowMapper;
+
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 @Service
 public class CriminalRecordsTerminalImpl implements CriminalRecordsTerminal
@@ -15,6 +17,8 @@ public class CriminalRecordsTerminalImpl implements CriminalRecordsTerminal
 
     @Resource
     private JdbcTemplate jdbcTemplate;
+    @Resource
+    private EmployeeRowMapper employeeRowMapper;
 
     private boolean power;
     private boolean access;
@@ -33,11 +37,15 @@ public class CriminalRecordsTerminalImpl implements CriminalRecordsTerminal
     @Override
     public void showAllEmployeeOnDisplay()
     {
-        for (Employee showEmployee : employees)
+        List<Employee> listEmployee = jdbcTemplate.query("SELECT * FROM employee", employeeRowMapper);
+
+        for (Employee employee : listEmployee)
         {
-            System.out.println(showEmployee);
+            System.out.println(employee);
         }
+
     }
+
 
     @Override
     public void setAccessCard(String card)
@@ -67,8 +75,6 @@ public class CriminalRecordsTerminalImpl implements CriminalRecordsTerminal
         {
             System.out.println("Введите имя сотрудника");
             String nameEmployee = scanner.nextLine();
-            System.out.println("Введите уникальный номер сотрудника");
-            int idEmployee = Integer.parseInt(scanner.nextLine());
             System.out.println("Введите пол сотрудника");
             String genderEmployee = scanner.nextLine();
             System.out.println("Введите возраст сотрудника");
@@ -82,7 +88,9 @@ public class CriminalRecordsTerminalImpl implements CriminalRecordsTerminal
             System.out.println("Введите ментальный статус");
             String mentalStatusEmployee = scanner.nextLine();
 
-            jdbcTemplate.update("INSERT INTO employee (name,age) VALUES (?, ?, ?, ?, ?, ?, ?)",
+            jdbcTemplate.update("INSERT INTO employee " +
+                            "(name,gender,age,assignment,fingerprint,physicalStatus,mentalStatus)" +
+                            " VALUES (?, ?, ?, ?, ?, ?, ?)",
                     nameEmployee, genderEmployee, ageEmployee, assignmentEmployee,
                     fingerprintEmployee, physicalStatusEmployee, mentalStatusEmployee);
         }

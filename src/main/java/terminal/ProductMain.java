@@ -15,10 +15,6 @@ public class ProductMain implements CommandLineRunner
     @Resource
     private ProductTerminalImpl productTerminal;
 
-    public static void main(String[] args)
-    {
-        SpringApplication.run(ProductMain.class, args);
-    }
 
     @Override
     public void run(String... args) throws Exception

@@ -16,11 +16,6 @@ public class CriminalRecordsMain implements CommandLineRunner
     @Resource
     private CriminalRecordsTerminalImpl criminalRecordsTerminal;
 
-    public static void main(String[] args)
-    {
-        SpringApplication.run(CriminalRecordsMain.class, args);
-    }
-
     @Override
     public void run(String... args)
     {

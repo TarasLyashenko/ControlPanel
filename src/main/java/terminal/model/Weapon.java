@@ -9,20 +9,20 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Animal
+public class Weapon
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String name;
-    private boolean live;
+    private String tittle;
+    private int quantity;
 
     @Override
     public String toString()
     {
-        return name + " | " +
-                live + " | " +
+        return tittle + " | " +
+                quantity + " | " +
                 id;
     }
 }

@@ -3,7 +3,6 @@ package terminal.service;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import terminal.model.Employee;
-import terminal.rowmappers.EmployeeRowMapper;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -17,8 +16,6 @@ public class CriminalRecordsTerminalImpl implements CriminalRecordsTerminal
 
     @Resource
     private JdbcTemplate jdbcTemplate;
-    @Resource
-    private EmployeeRowMapper employeeRowMapper;
 
     private boolean power;
     private boolean access;
@@ -37,12 +34,6 @@ public class CriminalRecordsTerminalImpl implements CriminalRecordsTerminal
     @Override
     public void showAllEmployeeOnDisplay()
     {
-        List<Employee> listEmployee = jdbcTemplate.query("SELECT * FROM employee", employeeRowMapper);
-
-        for (Employee employee : listEmployee)
-        {
-            System.out.println(employee);
-        }
 
     }
 

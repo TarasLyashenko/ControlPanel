@@ -15,6 +15,10 @@ public class ProductMain implements CommandLineRunner
     @Resource
     private ProductTerminalImpl productTerminal;
 
+    public static void main(String[] args)
+    {
+        SpringApplication.run(ProductMain.class, args);
+    }
 
     @Override
     public void run(String... args) throws Exception
@@ -36,14 +40,7 @@ public class ProductMain implements CommandLineRunner
             {
                 productTerminal.showAllProduct();
             }
-            else if (userText.equals("3"))
-            {
-                productTerminal.addAnimal();
-            }
-            else if (userText.equals("4"))
-            {
-                productTerminal.showAllAnimal();
-            }
+
         }
     }
 }

@@ -3,10 +3,10 @@ package terminal;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import terminal.dao.NinjaDao;
-import terminal.dao.ShipDao;
-import terminal.model.spiderClan.Ninja;
-import terminal.model.spiderClan.Ship;
+import terminal.dao.LaptopDao;
+import terminal.dao.SmartphoneDao;
+import terminal.model.electrinicshop.Laptop;
+import terminal.model.electrinicshop.Smartphone;
 
 import javax.annotation.Resource;
 import java.util.Optional;
@@ -16,9 +16,9 @@ import java.util.Optional;
 public class DatabaseMain implements CommandLineRunner
 {
     @Resource
-    private NinjaDao ninjaDao;
+    private LaptopDao laptopDao;
     @Resource
-    private ShipDao shipDao;
+    private SmartphoneDao smartphoneDao;
 
     public static void main(String[] args)
     {
@@ -28,16 +28,15 @@ public class DatabaseMain implements CommandLineRunner
     @Override
     public void run(String... args) throws Exception
     {
-        for (Ninja ninja : ninjaDao.findAll())
+        for (Laptop laptop : laptopDao.findAll())
         {
-            System.out.println(ninja);
+            System.out.println(laptop);
         }
 
-        for (Ship ship : shipDao.findAll())
+        for (Smartphone smartphone : smartphoneDao.findAll())
         {
-            System.out.println(ship);
+            System.out.println(smartphone);
         }
-
 
     }
 }

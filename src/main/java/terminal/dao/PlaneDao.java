@@ -1,15 +1,14 @@
 package terminal.dao;
 
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import terminal.model.Animal;
 import terminal.model.Product;
+import terminal.model.airport.Plane;
 
 import java.util.List;
 
 @Repository
-public interface AnimalDao extends CrudRepository<Animal, Long>
+public interface PlaneDao extends CrudRepository<Plane, Long>
 {
-    List<Animal> findByLive(Boolean live);
+    List<Plane> findByInTheParking (Boolean parking);
 }

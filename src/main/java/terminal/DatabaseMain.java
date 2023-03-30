@@ -3,22 +3,28 @@ package terminal;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import terminal.dao.LaptopDao;
-import terminal.dao.SmartphoneDao;
-import terminal.model.electrinicshop.Laptop;
-import terminal.model.electrinicshop.Smartphone;
+import terminal.dao.*;
+import terminal.model.airport.Plane;
 
 import javax.annotation.Resource;
-import java.util.Optional;
+import java.util.List;
 
 
 @SpringBootApplication
 public class DatabaseMain implements CommandLineRunner
 {
     @Resource
-    private LaptopDao laptopDao;
+    private DispatcherDao dispatcherDao;
     @Resource
-    private SmartphoneDao smartphoneDao;
+    private PlaneDao planeDao;
+    @Resource
+    private NinjaDao ninjaDao;
+    @Resource
+    private EmployeeDao employeeDao;
+    @Resource
+    private ProductDao productDao;
+    @Resource
+    private AnimalDao animalDao;
 
     public static void main(String[] args)
     {
@@ -28,15 +34,11 @@ public class DatabaseMain implements CommandLineRunner
     @Override
     public void run(String... args) throws Exception
     {
-        for (Laptop laptop : laptopDao.findAll())
+        List<Plane> byParking = planeDao.findByInTheParking(false);
+        for (Plane plane : byParking)
         {
-            System.out.println(laptop);
+            System.out.println(plane);
         }
-
-        for (Smartphone smartphone : smartphoneDao.findAll())
-        {
-            System.out.println(smartphone);
-        }
-
     }
+
 }

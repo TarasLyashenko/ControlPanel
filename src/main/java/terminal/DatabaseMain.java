@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import terminal.dao.*;
+import terminal.model.Employee;
 import terminal.model.airport.Plane;
 
 import javax.annotation.Resource;
@@ -34,11 +35,8 @@ public class DatabaseMain implements CommandLineRunner
     @Override
     public void run(String... args) throws Exception
     {
-        List<Plane> byParking = planeDao.findByInTheParking(false);
-        for (Plane plane : byParking)
-        {
-            System.out.println(plane);
-        }
+        Employee byFingerprint = employeeDao.findByFingerprint("8424sfd3");
+        System.out.println(byFingerprint);
     }
 
 }

@@ -25,7 +25,6 @@ public class ProductTerminalImpl implements ProductTerminal
 
         Product product = new Product();
         product.setName(name);
-        product.setFresh(fresh);
 
         productDao.save(product);
 

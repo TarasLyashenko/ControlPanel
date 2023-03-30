@@ -1,11 +1,9 @@
 package terminal.model;
 
 import lombok.Data;
+import terminal.model.enums.ProductStatus;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -16,14 +14,14 @@ public class Product
     private long id;
 
     private String name;
-
-    private boolean fresh;
+    @Enumerated(EnumType.STRING)
+    private ProductStatus status;
 
     @Override
     public String toString()
     {
         return name + " | " +
-                fresh + " | " +
+                status + " | " +
                 id;
     }
 }

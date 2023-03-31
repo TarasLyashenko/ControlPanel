@@ -10,10 +10,10 @@ import java.util.List;
 @Repository
 public interface ProductDao extends CrudRepository<Product, Long>
 {
-    @Query("SELECT p FROM Product p WHERE p.status != 'TRASH'")
-    List<Product> findProductsReadyToCook();
-
-    @Query("SELECT p FROM Product p WHERE p.status = 'TRASH'")
-    List<Product> findProductsForRelease();
+//    @Query("SELECT p FROM Product p WHERE p.status != 'TRASH'")
+//    List<Product> findProductsReadyToCook();
+//
+//    @Query("SELECT p FROM Product p WHERE p.status = 'TRASH'")
+//    List<Product> findProductsForRelease();
 
 }

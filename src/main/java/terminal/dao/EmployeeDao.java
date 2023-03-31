@@ -11,12 +11,12 @@ import java.util.List;
 @Repository
 public interface EmployeeDao extends CrudRepository<Employee, Long>
 {
-    @Query("SELECT e FROM Employee WHERE e.mentalStatus = 'HEALTHY' AND physicalStatus = 'HEALTHY'")
+    @Query("SELECT e FROM Employee e WHERE e.mentalStatus = 'HEALTHY' AND physicalStatus = 'HEALTHY'")
     List<Employee> findFullHealthyPeople();
 
-    @Query("SELECT e FROM Employee WHERE e.physicalStatus = 'HEALTHY'")
+    @Query("SELECT e FROM Employee e WHERE e.physicalStatus = 'HEALTHY'")
     List<Employee> findPhysicallyUnhealthy();
 
-    @Query("SELECT e FROM Employee WHERE e.mentalStatus = 'HEALTHY'")
+    @Query("SELECT e FROM Employee e WHERE e.mentalStatus = 'HEALTHY'")
     List<Employee> findMentalUnhealthy();
 }

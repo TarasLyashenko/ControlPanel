@@ -4,8 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import terminal.dao.*;
-import terminal.model.Employee;
-import terminal.model.airport.Plane;
+import terminal.model.computerClub.Manager;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -26,6 +25,10 @@ public class DatabaseMain implements CommandLineRunner
     private ProductDao productDao;
     @Resource
     private AnimalDao animalDao;
+    @Resource
+    private ManagerDao managerDao;
+    @Resource
+    private ComputerDao computerDao;
 
     public static void main(String[] args)
     {
@@ -35,8 +38,11 @@ public class DatabaseMain implements CommandLineRunner
     @Override
     public void run(String... args) throws Exception
     {
-        Employee byFingerprint = employeeDao.findByFingerprint("8424sfd3");
-        System.out.println(byFingerprint);
+        List<Manager> layoff = managerDao.findWorkers();
+        for (Manager manager : layoff)
+        {
+            System.out.println(manager);
+        }
     }
 
 }

@@ -11,9 +11,9 @@ import java.util.List;
 @Repository
 public interface PlaneDao extends CrudRepository<Plane, Long>
 {
-    @Query("SELECT p FROM Plane p WHERE p.inTheParking = 'IN_THE_HANGAR'")
-    List<Plane> findAircraftInTheHangar();
-
-    @Query("SELECT p FROM Plane p WHERE p.inTheParking = 'IN_THE_AIR'")
-    List<Plane> findAircraftInTheAir();
+//    @Query("SELECT p FROM Plane p WHERE p.inTheParking = 'IN_THE_HANGAR'")
+//    List<Plane> findAircraftInTheHangar();
+//
+//    @Query("SELECT p FROM Plane p WHERE p.inTheParking = 'IN_THE_AIR'")
+//    List<Plane> findAircraftInTheAir();
 }

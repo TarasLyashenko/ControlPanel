@@ -4,26 +4,30 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import terminal.dao.*;
-import terminal.model.ata277.Bio;
-import terminal.model.ata277.Director;
-import terminal.model.ata277.Restaurant;
-import terminal.model.ata278.Author;
-import terminal.model.ata278.Quest;
-import terminal.model.ata278.Scenario;
-import terminal.model.enums.*;
+import terminal.model.ata279.Cult;
+import terminal.model.ata279.Cultist;
+import terminal.model.ata279.God;
+import terminal.model.enums.CultistMethodConvert;
+import terminal.model.enums.TypeOfBloodGod;
+import terminal.model.enums.TypeofCult;
 
 import javax.annotation.Resource;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @SpringBootApplication
 public class DatabaseMain implements CommandLineRunner
 {
     @Resource
-    private QuestDao questDao;
+    private CultistDao cultistDao;
     @Resource
-    private ScenarioDao scenarioDao;
+    private CultDao cultDao;
     @Resource
-    private AuthorDao authorDao;
+    private GodDao godDao;
 
     public static void main(String[] args)
     {
@@ -33,8 +37,9 @@ public class DatabaseMain implements CommandLineRunner
     @Override
     public void run(String... args) throws Exception
     {
-        Optional<Quest> questDaoById = questDao.findById(209L);
-        Quest quest = questDaoById.get();
-        System.out.println(quest);
+        Optional<Cultist> cultistDaoById = cultistDao.findById(212L);
+        Cultist cultist = cultistDaoById.get();
+        System.out.println(cultist);
+
     }
 }

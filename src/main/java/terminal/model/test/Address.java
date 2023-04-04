@@ -1,4 +1,4 @@
-package terminal.model;
+package terminal.model.test;
 
 import lombok.Data;
 
@@ -9,20 +9,12 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Weapon
+public class Address
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String tittle;
-    private int quantity;
-
-    @Override
-    public String toString()
-    {
-        return tittle + " | " +
-                quantity + " | " +
-                id;
-    }
+    private String street;
+    private String city;
 }

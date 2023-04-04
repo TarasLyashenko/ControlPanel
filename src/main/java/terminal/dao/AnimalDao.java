@@ -4,7 +4,6 @@ package terminal.dao;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import terminal.model.Animal;
-import terminal.model.Product;
 
 import java.util.List;
 

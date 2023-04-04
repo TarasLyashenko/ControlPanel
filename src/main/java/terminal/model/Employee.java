@@ -1,9 +1,9 @@
 package terminal.model;
 
 import lombok.Data;
+import terminal.model.ata275.MedicalCard;
 import terminal.model.enums.EmployeeGender;
 import terminal.model.enums.EmployeeMentalStatus;
-import terminal.model.enums.EmployeePhysicalStatus;
 
 import javax.persistence.*;
 
@@ -22,9 +22,10 @@ public class Employee
     private String assignment;
     private String fingerprint;
     @Enumerated(EnumType.STRING)
-    private EmployeePhysicalStatus physicalStatus;
-    @Enumerated(EnumType.STRING)
     private EmployeeMentalStatus mentalStatus;
+    @OneToOne
+    @JoinColumn(name = "medical_card_id")
+    private MedicalCard medicalCard;
 
     @Override
     public String toString()
@@ -35,7 +36,7 @@ public class Employee
                 age + " | " +
                 assignment + " | " +
                 fingerprint + " | " +
-                physicalStatus + " | " +
-                mentalStatus;
+                mentalStatus + " | " +
+                medicalCard;
     }
 }

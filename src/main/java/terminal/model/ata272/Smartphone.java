@@ -1,4 +1,4 @@
-package terminal.model.electrinicshop;
+package terminal.model.ata272;
 
 import lombok.Data;
 
@@ -15,16 +15,6 @@ public class Smartphone
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String title;
+    private String model;
     private int price;
-    private int quantity;
-
-    @Override
-    public String toString()
-    {
-        return  id + " | " +
-                title + " | " +
-                price + " | " +
-                quantity;
-    }
 }

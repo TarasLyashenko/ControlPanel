@@ -2,10 +2,10 @@ package terminal.dao;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import terminal.model.ata281.Quest;
+import terminal.model.lesson.Solder;
 
 @Repository
-public interface QuestDao extends CrudRepository<Quest, Long>
+public interface SolderDao extends CrudRepository<Solder, Long>
 {
-    Quest findByTitle(String title);
+    Solder findByName(String name);
 }

@@ -26,6 +26,10 @@ public class DatabaseMain implements CommandLineRunner
     @Override
     public void run(String... args)
     {
+        // Чистка таблиц перед запуском
+        borrowerDao.deleteAll();
+        bookDao.deleteAll();
+
         // Создание объектов
         Book book1 = new Book();
         book1.setTitle("Война и мир");

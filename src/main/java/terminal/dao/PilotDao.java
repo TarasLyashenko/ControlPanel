@@ -2,11 +2,10 @@ package terminal.dao;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import terminal.model.ata286.Plane;
+import terminal.model.ata286.Pilot;
 
 @Repository
-public interface PlaneDao extends CrudRepository<Plane, Long>
+public interface PilotDao extends CrudRepository<Pilot, Long>
 {
-    Plane findByModel(String model);
+    Pilot findByName(String name);
 }
-
